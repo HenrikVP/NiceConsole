@@ -2,10 +2,10 @@
 {
     internal class Prisoner: Person
     {
+        public enum PrisonerType { VIP, Scum, Snitch, Innocent, Victim }
         public int YearsToServe { get; set; }
         public DateTime DateOfRelease { get; set; }
-        public bool CanLeave { get; set; }
-        public enum PrisonerType { VIP, Scum, Snitch, Innocent, Victim }
+        public bool CanLeave { get; set; }     
         public PrisonerType Type {get; set;}
         public int Cell { get; set; }
         public Prisoner(List<Person> pList, string name, DateTime release, PrisonerType pt = PrisonerType.Victim)
@@ -24,6 +24,11 @@
             if (DateTime.Now < havePassedDate) age--;
 
             return age;
+        }
+
+        public override string GetName()
+        {
+            throw new NotImplementedException();
         }
     }
 }

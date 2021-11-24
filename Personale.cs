@@ -1,9 +1,11 @@
 ﻿namespace NiceConsole
 {
-    internal class Personale : Person
+    internal class Personale : Person, IPerson
     {
         public enum Workfunction { Doctor, Cook, Guard, Manager, Priest, HeadOfInterrogation, None }
         public Workfunction WorkerType { get; set; }
+        public int MyProperty { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
 
         public bool Cure(Person person)
         {
@@ -83,6 +85,22 @@
             ID = staticID;
             Name = name;
             pList.Add(this);
+        }
+
+        public override int GetId()
+        {
+            Console.WriteLine($"Id is : {ID}");
+            return ID;
+        }
+
+        public override string GetName()
+        {
+            return Name;
+        }
+
+        public string GetNameAndId()
+        {
+            throw new NotImplementedException();
         }
     }
 }
